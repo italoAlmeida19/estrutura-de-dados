@@ -3,7 +3,7 @@
 Prova::Prova(int nq)
 {
     // implemente o construtor aqui
-    double *notasQuestoes = new double[nq];
+    notasQuestoes = new double[nq];
     cout << "Criando uma prova" << endl;
 
     n = nq;
