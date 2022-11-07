@@ -198,7 +198,7 @@ void ListaEncad::concatena(ListaEncad *l2)
     ultimo = l2->ultimo;
     l2->ultimo = NULL;
     l2->primeiro = NULL;
-    
+
     /*No *p;
     for(p = l2->primeiro; p != NULL; p = p->getProx())
     {
@@ -208,12 +208,24 @@ void ListaEncad::concatena(ListaEncad *l2)
 
 ListaEncad* ListaEncad::partir(int x)
 {
-    No *p;
+    ListaEncad* novaLista = new ListaEncad();
 
-    for(p = primeiro; p != NULL; p = p->getProx())
+    No *p;
+    int cont = 1;
+    for(p = this->primeiro; p != NULL; p = p->getProx())
     {
-        
+        if(cont == x)
+            break;
+        cont++;
     }
+
+
+    for(; p != NULL; p = p->getProx())
+    {
+        novaLista->insereFinal(p->getInfo());
+    }
+
+    return novaLista;
 }
 
 void ListaEncad::insereOrdenado(int val)
